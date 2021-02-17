@@ -1,0 +1,287 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+body{
+    overflow: hidden;
+}
+/*intro*/
+section#container-difference{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+section#container-difference h2{
+    position: relative;
+    font-size: 10vw;
+    text-align: center;
+    line-height: 1em;
+    font-weight: 800;
+    color: #1e1e1e;
+}
+section#container-difference h2 span{
+   color: transparent;
+    -webkit-text-stroke: 0.3vw #1e1e1e;
+}
+section#container-difference strong{
+    font-size: 3vw;
+    color: #a61919;
+    z-index: 2;
+}
+section#container-difference .black{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #e1e1e1;
+    mix-blend-mode: difference;
+}
+/*stacks*/
+#container-stacks{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: #000;
+    animation: animateShadow infinite linear;
+    animation-duration: 5s;
+}
+#container-stacks .middle{
+    width: 100%;
+}
+#container-stacks .middle h2{
+    text-align: center;
+    position: relative;
+    display: flex;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 4vw;
+    line-height: 0.9em;
+    letter-spacing: 4px;
+}
+#container-stacks .middle h2 span{
+    float: left;
+    flex: 1;
+    padding: 10px 0;
+    -webkit-text-stroke: 1px rgba(255,255,255,0.1);
+    color: rgba(166,25,25,0.8);
+    text-shadow: -2px 2px 2px rgb(255, 36, 36);
+    -webkit-background-clip: text;
+    transition: all ease 1s;
+}
+#container-stacks .middle h2 b{
+    float: left;
+    color: #1e1e1e;
+    flex: 1;
+    padding: 10px 0;
+}
+
+@keyframes animateShadow {
+    0%{
+        -webkit-box-shadow: inset 0px 0px 103px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: inset 0px 0px 103px 0px rgba(0,0,0,0.75);
+        box-shadow: inset 0px 0px 103px 0px rgba(0,0,0,0.75);
+    }
+    50%{
+        -webkit-box-shadow: inset 0px 0px 103px 0px rgba(255, 36, 36,0.3);
+        -moz-box-shadow: inset 0px 0px 103px 0px rgba(255, 36, 36,0.3);
+        box-shadow: inset 0px 0px 103px 0px rgba(255, 36, 36,0.3);
+    }
+    100%{
+        -webkit-box-shadow: inset 0px 0px 103px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: inset 0px 0px 103px 0px rgba(0,0,0,0.75);
+        box-shadow: inset 0px 0px 103px 0px rgba(0,0,0,0.75);
+    }
+}
+/*Loading*/
+#loading{
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: #1e1e1e;
+}
+#loading h2{
+    color: transparent;
+    font-size: 5vw;
+    position: relative;
+}
+#loading h2::before{
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    color: #a61919;
+    -webkit-text-stroke: 0 #1e1e1e;
+    border-right: 3px solid #a61919;
+    overflow: hidden;
+    animation: loading infinite linear 5s;
+}
+@keyframes loading {
+    0%, 10%, 100%{
+        width: 0;
+    }
+    50%{
+        color: #FF2424;
+        border-right: 3px solid #FF2424;
+        text-shadow: -2px 2px 2px rgb(255, 36, 36);
+    }
+    70%{
+        width: 100%;
+    }
+}
+/*text background*/
+section#text-opacity{
+    float: left;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    overflow: hidden;
+}
+section#text-opacity p{
+    font-size: 10px;
+    word-break: break-word;
+    background: url('../images/bg.jpg')  top center no-repeat;
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+/*road*/
+#box-road{
+    float: left;
+    width: 100%;
+    height: 80vw;
+    overflow: hidden;
+    position: relative;
+    animation: animateInfinite linear infinite 10s;
+    max-height: 100vh;
+}
+#box-road::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    opacity: 1;
+    animation: animateInfiniteBefore linear infinite 10s;
+    background: -moz-linear-gradient(180deg, transparent 0%, rgb(444 444 444) 99%);
+    background: -webkit-linear-gradient(180deg, transparent 0%, rgb(444 444 444) 99%);
+    background: linear-gradient(180deg, transparent 0%, rgb(444 444 444) 99%);
+    transition: 300ms ease-in 70ms;
+}
+@keyframes animateInfiniteBefore {
+    0%, 100%{
+        opacity: 1;
+    }
+    50%{
+        opacity: .4;
+    }
+}
+@keyframes animateInfinite {
+    0%, 100%{
+        background: rgb(103 172 243);
+        -webkit-transition-property: background;
+        transition: 300ms ease-in 70ms;
+    }
+    50%{
+        background: rgb(000 000 000);
+        -webkit-transition-property: background;
+        transition: 300ms ease-in 70ms;
+    }
+}
+#box-road .road{
+    position: relative;
+    float: left;
+    width: 200%;
+    height: 100%;
+    background: url('../images/bg-road.png') repeat-x;
+    background-size: 50% auto;
+    background-position: 0 bottom;
+    animation: animateRoad linear infinite 5s;
+}
+@keyframes animateRoad {
+    form{
+        background-position: 0 bottom;
+    }
+    to{
+        background-position: -100% bottom;
+    }
+}
+.car01{
+    position: absolute;
+    bottom: 1.3vw;
+    left: -80px;
+    animation: animateCar01 linear infinite 5s;
+    z-index: 1;
+    width: 5vw;
+}
+.car02{
+    position: absolute;
+    z-index: 0;
+    bottom: 2.2vw;
+    left: -20%;
+    width: 5vw;
+    animation: animateCar02 linear infinite 8s;
+}
+@keyframes animateCar01 {
+    form{
+        left: -80px;
+    }
+    to{
+        left: 100%;
+    }
+}
+@keyframes animateCar02 {
+    form{
+        left: -20%;
+    }
+    to{
+        left: 100%;
+    }
+}
+#sun{
+    position: absolute;
+    top: 5vh;
+    left: 5vh;
+    border-radius: 100%;
+    background: yellow;
+    animation: animateSun linear 10s infinite;
+}
+@keyframes animateSun {
+    0%, 100%{
+        width: 10vw;
+        height: 10vw;
+        border-radius: 100%;
+        background: yellow;
+    }
+    50%{
+        width: 9vw;
+        height: 9vw;
+        background: transparent;
+        border-radius: 50%;
+        box-shadow: 1vw .4vw 0 0 #fff;
+    }
+}
